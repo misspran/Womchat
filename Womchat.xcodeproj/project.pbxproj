@@ -15,6 +15,20 @@
 		1241B9BC1A083288003BD083 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1241B9BB1A083288003BD083 /* Images.xcassets */; };
 		1241B9BF1A083288003BD083 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1241B9BD1A083288003BD083 /* LaunchScreen.xib */; };
 		1241B9CB1A083288003BD083 /* WomchatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9CA1A083288003BD083 /* WomchatTests.m */; };
+		1241B9D61A083592003BD083 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9D41A083592003BD083 /* Bolts.framework */; };
+		1241B9D71A083592003BD083 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9D51A083592003BD083 /* Parse.framework */; };
+		1241B9E31A0835E4003BD083 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9D81A0835E4003BD083 /* Accounts.framework */; };
+		1241B9E41A0835E4003BD083 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9D91A0835E4003BD083 /* AdSupport.framework */; };
+		1241B9E51A0835E4003BD083 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DA1A0835E4003BD083 /* AudioToolbox.framework */; };
+		1241B9E61A0835E4003BD083 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DB1A0835E4003BD083 /* CFNetwork.framework */; };
+		1241B9E71A0835E4003BD083 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DC1A0835E4003BD083 /* CoreGraphics.framework */; };
+		1241B9E81A0835E4003BD083 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DD1A0835E4003BD083 /* CoreLocation.framework */; };
+		1241B9E91A0835E4003BD083 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DE1A0835E4003BD083 /* MobileCoreServices.framework */; };
+		1241B9EA1A0835E4003BD083 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9DF1A0835E4003BD083 /* QuartzCore.framework */; };
+		1241B9EB1A0835E4003BD083 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9E01A0835E4003BD083 /* Security.framework */; };
+		1241B9EC1A0835E4003BD083 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9E11A0835E4003BD083 /* Social.framework */; };
+		1241B9ED1A0835E4003BD083 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9E21A0835E4003BD083 /* SystemConfiguration.framework */; };
+		1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9EE1A0835F0003BD083 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +56,20 @@
 		1241B9C41A083288003BD083 /* WomchatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WomchatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1241B9C91A083288003BD083 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1241B9CA1A083288003BD083 /* WomchatTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WomchatTests.m; sourceTree = "<group>"; };
+		1241B9D41A083592003BD083 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1241B9D51A083592003BD083 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		1241B9D81A0835E4003BD083 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		1241B9D91A0835E4003BD083 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1241B9DA1A0835E4003BD083 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1241B9DB1A0835E4003BD083 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		1241B9DC1A0835E4003BD083 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1241B9DD1A0835E4003BD083 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1241B9DE1A0835E4003BD083 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1241B9DF1A0835E4003BD083 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		1241B9E01A0835E4003BD083 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1241B9E11A0835E4003BD083 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1241B9E21A0835E4003BD083 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1241B9EE1A0835F0003BD083 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +77,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */,
+				1241B9E31A0835E4003BD083 /* Accounts.framework in Frameworks */,
+				1241B9E41A0835E4003BD083 /* AdSupport.framework in Frameworks */,
+				1241B9E51A0835E4003BD083 /* AudioToolbox.framework in Frameworks */,
+				1241B9E61A0835E4003BD083 /* CFNetwork.framework in Frameworks */,
+				1241B9E71A0835E4003BD083 /* CoreGraphics.framework in Frameworks */,
+				1241B9E81A0835E4003BD083 /* CoreLocation.framework in Frameworks */,
+				1241B9E91A0835E4003BD083 /* MobileCoreServices.framework in Frameworks */,
+				1241B9EA1A0835E4003BD083 /* QuartzCore.framework in Frameworks */,
+				1241B9EB1A0835E4003BD083 /* Security.framework in Frameworks */,
+				1241B9EC1A0835E4003BD083 /* Social.framework in Frameworks */,
+				1241B9ED1A0835E4003BD083 /* SystemConfiguration.framework in Frameworks */,
+				1241B9D71A083592003BD083 /* Parse.framework in Frameworks */,
+				1241B9D61A083592003BD083 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +141,20 @@
 		1241B9AB1A083288003BD083 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1241B9EE1A0835F0003BD083 /* libz.dylib */,
+				1241B9D81A0835E4003BD083 /* Accounts.framework */,
+				1241B9D91A0835E4003BD083 /* AdSupport.framework */,
+				1241B9DA1A0835E4003BD083 /* AudioToolbox.framework */,
+				1241B9DB1A0835E4003BD083 /* CFNetwork.framework */,
+				1241B9DC1A0835E4003BD083 /* CoreGraphics.framework */,
+				1241B9DD1A0835E4003BD083 /* CoreLocation.framework */,
+				1241B9DE1A0835E4003BD083 /* MobileCoreServices.framework */,
+				1241B9DF1A0835E4003BD083 /* QuartzCore.framework */,
+				1241B9E01A0835E4003BD083 /* Security.framework */,
+				1241B9E11A0835E4003BD083 /* Social.framework */,
+				1241B9E21A0835E4003BD083 /* SystemConfiguration.framework */,
+				1241B9D41A083592003BD083 /* Bolts.framework */,
+				1241B9D51A083592003BD083 /* Parse.framework */,
 				1241B9AC1A083288003BD083 /* Info.plist */,
 				1241B9AD1A083288003BD083 /* main.m */,
 			);
@@ -347,6 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Womchat",
+				);
 				INFOPLIST_FILE = Womchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +417,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Womchat",
+				);
 				INFOPLIST_FILE = Womchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
