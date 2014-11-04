@@ -19,11 +19,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [Parse setApplicationId:@"NytJSzFIyESwM2wC79PEu6JuIeV05IH3GMwSV1gr" clientKey:@"DxgZIHqYt9HetS1f6H8fByZe0WoeoeNo08zJW15r"];
 
+    [Parse setApplicationId:@"NytJSzFIyESwM2wC79PEu6JuIeV05IH3GMwSV1gr" clientKey:@"DxgZIHqYt9HetS1f6H8fByZe0WoeoeNo08zJW15r"];
+    [PFFacebookUtils initializeFacebook];
     return YES;
 }
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
+}
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [FBAppEvents activateApp];
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -40,11 +53,7 @@
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [FBAppEvents activateApp];
 
-}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -53,13 +62,7 @@
 }
 
 
-- (BOOL) application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [PFFacebookUtils handleOpenURL:url];
-}
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
-}
 
 #pragma mark - Core Data stack
 

@@ -11,9 +11,7 @@
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface FacebookLoginVC ()<FBLoginViewDelegate>
-@property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
-@property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
 
 @end
 
@@ -31,21 +29,21 @@
     
 }
 
-- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
-                            user:(id<FBGraphUser>)user {
-    self.profilePictureView.profileID = user.id;
-    self.userName.text = user.name;
-}
-
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    self.statusLabel.text = @"You're logged in as";
-}
-
-- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
-    self.profilePictureView.profileID = nil;
-    self.userName.text = @"";
-    self.statusLabel.text= @"You're not logged in!";
-}
+////- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+////                            user:(id<FBGraphUser>)user {
+////    self.profilePictureView.profileID = user.id;
+////    self.userName.text = user.name;
+////}
+////
+////- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+////    self.statusLabel.text = @"You're logged in as";
+////}
+////
+////- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+////    self.profilePictureView.profileID = nil;
+////    self.userName.text = @"";
+////    self.statusLabel.text= @"You're not logged in!";
+//}
 
 // Handle possible errors that can occur during login
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error {
