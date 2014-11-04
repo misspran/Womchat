@@ -31,6 +31,9 @@
 		1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9EE1A0835F0003BD083 /* libz.dylib */; };
 		1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F11A08474E003BD083 /* FacebookFriend.m */; };
 		1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F51A084F86003BD083 /* ContactsViewController.m */; };
+		CEE2F8EF1A0863BB00FA8644 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */; };
+		CEE2F8F21A08644A00FA8644 /* FacebookLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */; };
+		CEE2F8FD1A08A81800FA8644 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2F8FC1A08A81800FA8644 /* ParseFacebookUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,10 @@
 		1241B9F11A08474E003BD083 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
 		1241B9F41A084F86003BD083 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		1241B9F51A084F86003BD083 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		CEE2F8F01A08644A00FA8644 /* FacebookLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginVC.h; sourceTree = "<group>"; };
+		CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginVC.m; sourceTree = "<group>"; };
+		CEE2F8FC1A08A81800FA8644 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../Mobile Makers Projects/Swiftagram/Swiftagram/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE2F8FD1A08A81800FA8644 /* ParseFacebookUtils.framework in Frameworks */,
 				1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */,
 				1241B9E31A0835E4003BD083 /* Accounts.framework in Frameworks */,
 				1241B9E41A0835E4003BD083 /* AdSupport.framework in Frameworks */,
@@ -94,6 +102,7 @@
 				1241B9EA1A0835E4003BD083 /* QuartzCore.framework in Frameworks */,
 				1241B9EB1A0835E4003BD083 /* Security.framework in Frameworks */,
 				1241B9EC1A0835E4003BD083 /* Social.framework in Frameworks */,
+				CEE2F8EF1A0863BB00FA8644 /* FacebookSDK.framework in Frameworks */,
 				1241B9ED1A0835E4003BD083 /* SystemConfiguration.framework in Frameworks */,
 				1241B9D71A083592003BD083 /* Parse.framework in Frameworks */,
 				1241B9D61A083592003BD083 /* Bolts.framework in Frameworks */,
@@ -134,6 +143,8 @@
 				1241B9AF1A083288003BD083 /* AppDelegate.h */,
 				1241B9B01A083288003BD083 /* AppDelegate.m */,
 				1241B9B81A083288003BD083 /* Main.storyboard */,
+				CEE2F8F01A08644A00FA8644 /* FacebookLoginVC.h */,
+				CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */,
 				1241B9B51A083288003BD083 /* ViewController.h */,
 				1241B9B61A083288003BD083 /* ViewController.m */,
 				1241B9F41A084F86003BD083 /* ContactsViewController.h */,
@@ -150,6 +161,8 @@
 		1241B9AB1A083288003BD083 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CEE2F8FC1A08A81800FA8644 /* ParseFacebookUtils.framework */,
+				CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */,
 				1241B9EE1A0835F0003BD083 /* libz.dylib */,
 				1241B9D81A0835E4003BD083 /* Accounts.framework */,
 				1241B9D91A0835E4003BD083 /* AdSupport.framework */,
@@ -297,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */,
+				CEE2F8F21A08644A00FA8644 /* FacebookLoginVC.m in Sources */,
 				1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */,
 				1241B9B11A083288003BD083 /* AppDelegate.m in Sources */,
 				1241B9AE1A083288003BD083 /* main.m in Sources */,
@@ -426,6 +440,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Womchat",
+					"$(PROJECT_DIR)/parse-library-1.4.2",
+					2,
+					/Users/user/Desktop/Mobile,
+					Makers,
+					Projects/Swiftagram/Swiftagram,
 				);
 				INFOPLIST_FILE = Womchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +459,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Womchat",
+					"$(PROJECT_DIR)/parse-library-1.4.2",
+					2,
+					/Users/user/Desktop/Mobile,
+					Makers,
+					Projects/Swiftagram/Swiftagram,
 				);
 				INFOPLIST_FILE = Womchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
