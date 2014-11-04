@@ -29,6 +29,8 @@
 		1241B9EC1A0835E4003BD083 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9E11A0835E4003BD083 /* Social.framework */; };
 		1241B9ED1A0835E4003BD083 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9E21A0835E4003BD083 /* SystemConfiguration.framework */; };
 		1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9EE1A0835F0003BD083 /* libz.dylib */; };
+		1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F11A08474E003BD083 /* FacebookFriend.m */; };
+		1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F51A084F86003BD083 /* ContactsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		1241B9E11A0835E4003BD083 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1241B9E21A0835E4003BD083 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1241B9EE1A0835F0003BD083 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1241B9F01A08474E003BD083 /* FacebookFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookFriend.h; sourceTree = "<group>"; };
+		1241B9F11A08474E003BD083 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
+		1241B9F41A084F86003BD083 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		1241B9F51A084F86003BD083 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +133,15 @@
 			children = (
 				1241B9AF1A083288003BD083 /* AppDelegate.h */,
 				1241B9B01A083288003BD083 /* AppDelegate.m */,
+				1241B9B81A083288003BD083 /* Main.storyboard */,
 				1241B9B51A083288003BD083 /* ViewController.h */,
 				1241B9B61A083288003BD083 /* ViewController.m */,
-				1241B9B81A083288003BD083 /* Main.storyboard */,
+				1241B9F41A084F86003BD083 /* ContactsViewController.h */,
+				1241B9F51A084F86003BD083 /* ContactsViewController.m */,
 				1241B9BB1A083288003BD083 /* Images.xcassets */,
 				1241B9BD1A083288003BD083 /* LaunchScreen.xib */,
 				1241B9B21A083288003BD083 /* Womchat.xcdatamodeld */,
+				1241B9F31A084758003BD083 /* Data Model */,
 				1241B9AB1A083288003BD083 /* Supporting Files */,
 			);
 			path = Womchat;
@@ -176,6 +185,15 @@
 				1241B9C91A083288003BD083 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1241B9F31A084758003BD083 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				1241B9F01A08474E003BD083 /* FacebookFriend.h */,
+				1241B9F11A08474E003BD083 /* FacebookFriend.m */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +296,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */,
+				1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */,
 				1241B9B11A083288003BD083 /* AppDelegate.m in Sources */,
 				1241B9AE1A083288003BD083 /* main.m in Sources */,
 				1241B9B71A083288003BD083 /* ViewController.m in Sources */,
@@ -480,6 +500,7 @@
 				1241B9D01A083288003BD083 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1241B9D11A083288003BD083 /* Build configuration list for PBXNativeTarget "WomchatTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +509,7 @@
 				1241B9D31A083288003BD083 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
