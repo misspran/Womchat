@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <Parse/PFObject+Subclass.h>
 #import <Foundation/Foundation.h>
 
 @interface FacebookFriend : PFObject <PFSubclassing>

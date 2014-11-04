@@ -10,6 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Parse/Parse.h>
+#import "FacebookFriend.h"
 
 @interface FacebookLoginVC ()<FBLoginViewDelegate>
 
@@ -37,10 +38,11 @@
     [self.view addSubview:indicator];
 
     // Set permissions required from the facebook user account, you can find more about facebook permissions here https://developers.facebook.com/docs/facebook-login/permissions/v2.0
-    NSArray *permissionsArray = @[ @"public_profile", @"email", @"user_relationships", @"user_birthday", @"user_location"];
+    NSArray *permissionsArray = @[ @"public_profile", @"email", @"user_location", @"user_friends"];
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
+        [self requestForFBFriends];
 
         [indicator stopAnimating];
         [indicator removeFromSuperview];
@@ -70,18 +72,6 @@
                         [[PFUser currentUser]setObject:[result objectForKey:@"user_friends"] forKey:@"UserFriends"];
                         [[PFUser currentUser]saveInBackground];
                     }
-                    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                        if (!error) {
-                            NSArray *friendsObject = [result objectForKey:@"data"];
-                            NSMutableArray *friendsID = [NSMutableArray arrayWithCapacity:friendsObject.count];
-                            for (NSDictionary *friendObject in friendObject) {
-                                [friendsID addObject:[friendObject objectForKey:@"id"]];
-                            }
-                            PFQuery *friendQuery = [PFUser query];
-                            [friendQuery whereKey:@"FacebookID" containedIn:friendsID];
-                            NSLog(@"%@", friendsID);
-                        }
-                    }];
                 }];
             }
         }
@@ -90,6 +80,30 @@
 
 
     }
+
+-(void)requestForFBFriends{
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+        if (!error) {
+
+            NSMutableArray *friendsObjects = [NSMutableArray arrayWithObjects:result, nil];
+            for (NSDictionary *friendObject in friendsObjects) {
+                FacebookFriend *friend = [[FacebookFriend object]objectForKey:@"name"];
+                friend.name = [friendObject objectForKey:@"name"];
+                friend.fbID = [friendObject objectForKey:@"fbID"];
+                friend.friendOf = [PFUser currentUser];
+                [friendsObjects addObject:[friendObject objectForKey:@"data"]];
+                NSLog(@"%@", friendObject);
+                [friend saveInBackground];
+
+            }
+            PFQuery *friendQuery = [PFUser query];
+            [friendQuery whereKey:@"FacebookID" containedIn:friendsObjects];
+            NSLog(@"%@", friendsObjects);
+
+        }
+    }];
+}
+
 
 ////- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
 ////                            user:(id<FBGraphUser>)user {
