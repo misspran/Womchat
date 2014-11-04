@@ -7,8 +7,13 @@
 //
 
 #import "ContactsViewController.h"
+#import <Parse/Parse.h>
+#import "FacebookFriend.h"
 
-@interface ContactsViewController ()
+@interface ContactsViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property NSArray *contacts;
+@property NSMutableDictionary *contactsSeparated;
 
 @end
 
@@ -16,22 +21,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.contacts = [[NSArray alloc] init];
+    self.contactsSeparated = [[NSMutableDictionary alloc] init];
+
+    [self queryForContacts];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)queryForContacts
+{
+    PFQuery *queryForContacts = [PFQuery queryWithClassName:@"FacebookFriend"];
+    [queryForContacts whereKey:@"friendOf" equalTo:[PFUser currentUser]];
+    [queryForContacts findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error.userInfo);
+            self.contacts = [NSArray array];
+        }
+        else
+        {
+            self.contacts = [objects sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]; //I think I'll need to make it reference the name specifically?
+            [self placeContactsInDictionary];
+        }
+    }];
 }
 
-/*
-#pragma mark - Navigation
+-(void)placeContactsInDictionary
+{
+    for (FacebookFriend *contact in self.contacts)
+    {
+        NSString *firstLetter = [contact.name substringToIndex:0];
+        firstLetter =[firstLetter uppercaseString];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        if ([self.contactsSeparated objectForKey:firstLetter] == nil)
+        {
+            self.contactsSeparated
+        }
+    }
 }
-*/
+
+#pragma mark TableView DataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
+    return cell;
+}
 
 @end
