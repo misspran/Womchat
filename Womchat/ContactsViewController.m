@@ -14,6 +14,7 @@
 
 @property NSArray *contacts;
 @property NSMutableDictionary *contactsSeparated;
+@property NSArray *contactSectionTitles;
 
 @end
 
@@ -38,37 +39,89 @@
         }
         else
         {
-            self.contacts = [objects sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]; //I think I'll need to make it reference the name specifically?
-            [self placeContactsInDictionary];
+            self.contacts = objects; //[objects sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]; //I think I'll need to make it reference the name specifically?
+            [self createDictionaryWithKeys];
+            [self createArraysForDictionaryKeys];
         }
     }];
 }
 
--(void)placeContactsInDictionary
+-(void)createDictionaryWithKeys
 {
     for (FacebookFriend *contact in self.contacts)
     {
         NSString *firstLetter = [contact.name substringToIndex:0];
         firstLetter =[firstLetter uppercaseString];
 
+        NSMutableArray *emptyArray = [[NSMutableArray alloc] init];
+
         if ([self.contactsSeparated objectForKey:firstLetter] == nil)
         {
-            self.contactsSeparated
+            [self.contactsSeparated setObject:emptyArray forKey:firstLetter];
         }
+    }
+    self.contactSectionTitles = [[self.contactsSeparated allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]; //this should order the keys for us
+}
+
+-(void)createArraysForDictionaryKeys
+{
+    for (FacebookFriend *contact in self.contacts)
+    {
+        NSString *firstLetter = [contact.name substringToIndex:0];
+        firstLetter =[firstLetter uppercaseString];
+
+        NSMutableArray *tempArrayForKeys = [NSMutableArray array];
+        tempArrayForKeys = [self.contactsSeparated objectForKey:firstLetter];
+        [tempArrayForKeys addObject:contact];
+
+        [self.contactsSeparated setObject:tempArrayForKeys forKey:firstLetter];
     }
 }
 
 #pragma mark TableView DataSource
 
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.contactSectionTitles.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.contactSectionTitles objectAtIndex:section];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    // Return the number of rows in the section.
+    NSString *sectionTitle = [self.contactSectionTitles objectAtIndex:section];
+    NSArray *sectionContacts = [self.contactsSeparated objectForKey:sectionTitle];
+    return [sectionContacts count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID" forIndexPath:indexPath];
+
+    // Configure the cell...
+    NSString *sectionTitle = [self.contactSectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionContacts = [self.contactsSeparated objectForKey:sectionTitle];
+    FacebookFriend *contact = [sectionContacts objectAtIndex:indexPath.row];
+    cell.textLabel.text = contact.name;
+
     return cell;
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
