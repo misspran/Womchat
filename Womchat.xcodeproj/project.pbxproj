@@ -31,6 +31,7 @@
 		1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9EE1A0835F0003BD083 /* libz.dylib */; };
 		1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F11A08474E003BD083 /* FacebookFriend.m */; };
 		1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F51A084F86003BD083 /* ContactsViewController.m */; };
+		CEE173321A0A8F5C00608837 /* FBFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE173311A0A8F5C00608837 /* FBFriendsTableViewController.m */; };
 		CEE2F8EF1A0863BB00FA8644 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */; };
 		CEE2F8F21A08644A00FA8644 /* FacebookLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */; };
 		CEE2F8FD1A08A81800FA8644 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2F8FC1A08A81800FA8644 /* ParseFacebookUtils.framework */; };
@@ -79,6 +80,8 @@
 		1241B9F11A08474E003BD083 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
 		1241B9F41A084F86003BD083 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		1241B9F51A084F86003BD083 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		CEE173301A0A8F5C00608837 /* FBFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBFriendsTableViewController.h; path = ../FBFriendsTableViewController.h; sourceTree = "<group>"; };
+		CEE173311A0A8F5C00608837 /* FBFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBFriendsTableViewController.m; path = ../FBFriendsTableViewController.m; sourceTree = "<group>"; };
 		CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		CEE2F8F01A08644A00FA8644 /* FacebookLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookLoginVC.h; sourceTree = "<group>"; };
 		CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookLoginVC.m; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				1241B9B81A083288003BD083 /* Main.storyboard */,
 				CEE2F8F01A08644A00FA8644 /* FacebookLoginVC.h */,
 				CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */,
+				CEE173301A0A8F5C00608837 /* FBFriendsTableViewController.h */,
+				CEE173311A0A8F5C00608837 /* FBFriendsTableViewController.m */,
 				1241B9B51A083288003BD083 /* ViewController.h */,
 				1241B9B61A083288003BD083 /* ViewController.m */,
 				1241B9F41A084F86003BD083 /* ContactsViewController.h */,
@@ -258,6 +263,7 @@
 				TargetAttributes = {
 					1241B9A71A083288003BD083 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = FBA3YYHYLL;
 					};
 					1241B9C31A083288003BD083 = {
 						CreatedOnToolsVersion = 6.1;
@@ -312,6 +318,7 @@
 				1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */,
 				CEE2F8F21A08644A00FA8644 /* FacebookLoginVC.m in Sources */,
 				1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */,
+				CEE173321A0A8F5C00608837 /* FBFriendsTableViewController.m in Sources */,
 				1241B9B11A083288003BD083 /* AppDelegate.m in Sources */,
 				1241B9AE1A083288003BD083 /* main.m in Sources */,
 				1241B9B71A083288003BD083 /* ViewController.m in Sources */,
