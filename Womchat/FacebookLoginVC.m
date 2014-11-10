@@ -18,6 +18,7 @@
 
 @interface FacebookLoginVC ()<FBLoginViewDelegate>
 @property (nonatomic, strong) ACAccountStore *accountStore;
+@property NSArray *friendsObjectArray;
 
 
 @end
@@ -26,44 +27,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupAccountsStore];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAccountStoreChanged:) name:ACAccountStoreDidChangeNotification object:nil];
+//    [self setupAccountsStore];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAccountStoreChanged:) name:ACAccountStoreDidChangeNotification object:nil];
     [self loggedInSendFBinfoToParse];
 
     
 }
 
-- (IBAction)FacebookLoginPressed:(id)sender {
-    FBFriendsTableViewController *facebookVC = [[FBFriendsTableViewController alloc]init];
-    facebookVC.accountStore = self.accountStore;
-    [self presentViewController:facebookVC animated:YES completion:nil];
-}
-
--(void)setupAccountsStore{
-    self.accountStore = [[ACAccountStore alloc]init];
-    if(self.presentedViewController){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-
-- (void)onAccountStoreChanged:(NSNotification *)notification {
-    [self setupAccountsStore];
-
-    if (self.presentedViewController) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-}
-
-
-
-
-
-
-
-
-
-
+//- (IBAction)FacebookLoginPressed:(id)sender {
+//    FBFriendsTableViewController *facebookVC = [[FBFriendsTableViewController alloc]init];
+//    facebookVC.accountStore = self.accountStore;
+//    [self presentViewController:facebookVC animated:YES completion:nil];
+//}
+//
+//-(void)setupAccountsStore{
+//    self.accountStore = [[ACAccountStore alloc]init];
+//    if(self.presentedViewController){
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//}
+//
+//
+//- (void)onAccountStoreChanged:(NSNotification *)notification {
+//    [self setupAccountsStore];
+//
+//    if (self.presentedViewController) {
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+//}
 
 
 
@@ -86,10 +77,11 @@
 
     // Login PFUser using Facebook
     [PFFacebookUtils logInWithPermissions:permissionsArray block:^(PFUser *user, NSError *error) {
-        [self requestForFBFriends];
 
         [indicator stopAnimating];
         [indicator removeFromSuperview];
+
+        
         if (!user) {
             NSString *errorMessage = nil;
             if (!error) {
@@ -114,39 +106,60 @@
                         [[PFUser currentUser]setObject:[result objectForKey:@"name"] forKey:@"Name"];
                         [[PFUser currentUser]setObject:[result objectForKey:@"email"] forKey:@"Email"];
                         [[PFUser currentUser]setObject:[result objectForKey:@"user_friends"] forKey:@"UserFriends"];
-                        [[PFUser currentUser]saveInBackground];
+                        [[PFUser currentUser]saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            FBFriendsTableViewController *facebookVC = [[FBFriendsTableViewController alloc]init];
+                            facebookVC.accountStore = self.accountStore;
+                            [self presentViewController:facebookVC animated:YES completion:nil];
+                        }];
+
                     }
                 }];
             }
         }
 
+        FBFriendsTableViewController *facebookVC = [[FBFriendsTableViewController alloc]init];
+        facebookVC.accountStore = self.accountStore;
+        [self presentViewController:facebookVC animated:YES completion:nil];
+        [self requestForFBFriends];
+
         }];
-
-
     }
 
+
+
+
 -(void)requestForFBFriends{
+
+
     [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         if (!error) {
+            // result will contain an array with your user's friends in the "data" key
+            NSArray *friendsObjects = [result objectForKey:@"data"];
 
-            NSMutableArray *friendsObjects = [NSMutableArray arrayWithObjects:result, nil];
             for (NSDictionary *friendObject in friendsObjects) {
                 FacebookFriend *friend = [[FacebookFriend object]objectForKey:@"name"];
                 friend.name = [friendObject objectForKey:@"name"];
                 friend.fbID = [friendObject objectForKey:@"fbID"];
                 friend.friendOf = [PFUser currentUser];
-                [friendsObjects addObject:[friendObject objectForKey:@"data"]];
-                NSLog(@"%@", friendObject);
+                [friend saveInBackground];
+                PFQuery *friendQuery = [PFUser query];
+                [friendQuery whereKey:@"FacebookID" containedIn:friendsObjects];
+                NSLog(@"QUACK: %@", friendsObjects);
+                self.friendsObjectArray = [NSArray arrayWithObject:friendsObjects];
+                NSString *userID = [[friendsObjects firstObject] objectForKey:@"id"];
+                NSString *userURL = [[NSString stringWithFormat:@"/%@/friends",userID] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+                NSLog(@"Hello: %@",userURL);
+                NSLog(@"heyy: %@", friendsObjects);
                 [friend saveInBackground];
 
             }
-            PFQuery *friendQuery = [PFUser query];
-            [friendQuery whereKey:@"FacebookID" containedIn:friendsObjects];
-            NSLog(@"%@", friendsObjects);
-
         }
     }];
 }
+
+
+
 
 
 

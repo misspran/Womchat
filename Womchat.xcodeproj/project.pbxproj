@@ -31,6 +31,8 @@
 		1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1241B9EE1A0835F0003BD083 /* libz.dylib */; };
 		1241B9F21A08474E003BD083 /* FacebookFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F11A08474E003BD083 /* FacebookFriend.m */; };
 		1241B9F61A084F86003BD083 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1241B9F51A084F86003BD083 /* ContactsViewController.m */; };
+		CE82B7FF1A0DC79B00CF1B0E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82B7FE1A0DC79B00CF1B0E /* AddressBook.framework */; };
+		CE82B8011A0DC97F00CF1B0E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE82B8001A0DC97F00CF1B0E /* AddressBookUI.framework */; };
 		CEE173321A0A8F5C00608837 /* FBFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE173311A0A8F5C00608837 /* FBFriendsTableViewController.m */; };
 		CEE2F8EF1A0863BB00FA8644 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */; };
 		CEE2F8F21A08644A00FA8644 /* FacebookLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE2F8F11A08644A00FA8644 /* FacebookLoginVC.m */; };
@@ -80,6 +82,8 @@
 		1241B9F11A08474E003BD083 /* FacebookFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookFriend.m; sourceTree = "<group>"; };
 		1241B9F41A084F86003BD083 /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		1241B9F51A084F86003BD083 /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		CE82B7FE1A0DC79B00CF1B0E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		CE82B8001A0DC97F00CF1B0E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		CEE173301A0A8F5C00608837 /* FBFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBFriendsTableViewController.h; path = ../FBFriendsTableViewController.h; sourceTree = "<group>"; };
 		CEE173311A0A8F5C00608837 /* FBFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBFriendsTableViewController.m; path = ../FBFriendsTableViewController.m; sourceTree = "<group>"; };
 		CEE2F8EE1A0863BB00FA8644 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE82B8011A0DC97F00CF1B0E /* AddressBookUI.framework in Frameworks */,
+				CE82B7FF1A0DC79B00CF1B0E /* AddressBook.framework in Frameworks */,
 				CEE2F8FD1A08A81800FA8644 /* ParseFacebookUtils.framework in Frameworks */,
 				1241B9EF1A0835F0003BD083 /* libz.dylib in Frameworks */,
 				1241B9E31A0835E4003BD083 /* Accounts.framework in Frameworks */,
@@ -125,6 +131,8 @@
 		1241B99F1A083288003BD083 = {
 			isa = PBXGroup;
 			children = (
+				CE82B8001A0DC97F00CF1B0E /* AddressBookUI.framework */,
+				CE82B7FE1A0DC79B00CF1B0E /* AddressBook.framework */,
 				1241B9AA1A083288003BD083 /* Womchat */,
 				1241B9C71A083288003BD083 /* WomchatTests */,
 				1241B9A91A083288003BD083 /* Products */,
